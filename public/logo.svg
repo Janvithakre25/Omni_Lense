@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none">
+  <circle cx="24" cy="24" r="22" fill="#006241"/>
+  <circle cx="24" cy="24" r="17" stroke="#F7F0E5" stroke-width="2" stroke-dasharray="3 3" opacity="0.6"/>
+  <!-- Stylized Lens & Leaf Growth Concept -->
+  <path d="M24 10C17 10 12 16 12 24C12 32 17 38 24 38C31 38 36 32 36 24C36 16 31 10 24 10Z" stroke="#E8F3EC" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M16 24C16 18 20 14 24 14C28 14 32 18 32 24C32 29 28 34 24 34" stroke="#F7F0E5" stroke-width="2"/>
+  <path d="M24 15C25.5 19 28.5 22 32.5 23.5" stroke="#D4E4D3" stroke-width="2" stroke-linecap="round"/>
+  <circle cx="24" cy="24" r="4.5" fill="#E8F3EC"/>
+  <circle cx="24" cy="24" r="2" fill="#006241"/>
+</svg>
