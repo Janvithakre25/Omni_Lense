@@ -6,7 +6,7 @@ OmniLens transforms raw, complex, messy, and unstructured data into meaningful, 
 
 ---
 
-## ☕ Visual Identity & Design Direction
+##  Visual Identity & Design Direction
 
 Inspired by the warmth, craft, and premium feel of the Starbucks design language:
 
@@ -24,7 +24,7 @@ Inspired by the warmth, craft, and premium feel of the Starbucks design language
 
 ---
 
-## 🌟 Key Features
+##  Key Features
 
 ### 1. Interactive Data Upload & Processing
 - Drag-and-drop file upload for **CSV**, **Excel (.xlsx, .xls)**, and **JSON**.
@@ -34,12 +34,12 @@ Inspired by the warmth, craft, and premium feel of the Starbucks design language
 
 ### 2. 6 Pre-Loaded Real-World Sample Datasets
 Instant one-click working examples with real data calculations:
-- ☕ **Warm Brew Cafe**: Daily beverage & pastry sales, weekday vs. weekend revenue trends.
-- 💰 **Personal Spending**: Living expenses, grocery vs. dining distributions.
-- 🛍️ **Nordic Craft Co.**: E-commerce shipments, ratings, and return rates.
-- 🎓 **Academy of Applied Sciences**: Student study hours, attendance, and exam outcomes.
-- 🏛️ **City Works 311**: Municipal service requests, priority levels, and resolution speeds.
-- ⛅ **Alpine Valley Observatory**: Daily temperature ranges, rainfall millimeters, and humidity.
+-  **Warm Brew Cafe**: Daily beverage & pastry sales, weekday vs. weekend revenue trends.
+-  **Personal Spending**: Living expenses, grocery vs. dining distributions.
+-  **Nordic Craft Co.**: E-commerce shipments, ratings, and return rates.
+-  **Academy of Applied Sciences**: Student study hours, attendance, and exam outcomes.
+-  **City Works 311**: Municipal service requests, priority levels, and resolution speeds.
+-  **Alpine Valley Observatory**: Daily temperature ranges, rainfall millimeters, and humidity.
 
 ### 3. "What Your Data Is Telling You" — Structured Evidence Cards
 Every discovery follows a rigorous 6-part human-readable framework:
@@ -78,7 +78,7 @@ Every discovery follows a rigorous 6-part human-readable framework:
 
 ---
 
-## 🚀 Getting Started
+##  Getting Started
 
 ### Prerequisites
 - Node.js (v18 or newer recommended, tested on Node v24)
@@ -168,7 +168,7 @@ The upload interface displays a compact, accessible, high-contrast privacy notic
 
 ---
 
-## 🧪 Verification & Testing
+##  Verification & Testing
 
 ### Running the Test Suite
 The repository includes automated engine and privacy verification tests executed via Node.js's built-in test runner:
