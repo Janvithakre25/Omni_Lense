@@ -83,15 +83,22 @@ Every discovery follows a rigorous 6-part human-readable framework:
 ### Prerequisites
 - Node.js (v18 or newer recommended, tested on Node v24)
 - npm (v9 or newer)
+- Git
 
-### Installation
+### Cloning & Installation
 ```bash
-# Clone or navigate to the project directory
+# 1. Clone the repository
+git clone https://github.com/Janvithakre25/Omni_Lense.git
+
+# 2. Navigate into the project directory
 cd Omni_Lense
 
-# Install dependencies
+# 3. Install dependencies
 npm install
 ```
+
+> [!TIP]
+> **Terminal Usage Tip:** When you start the development server (`npm run dev`), it occupies the current terminal session to serve live updates. If you need to run tests (`npm test`), generate production builds (`npm run build`), or execute Git operations while the app is running, use a **separate / different terminal window or tab**.
 
 ### Running Locally
 ```bash

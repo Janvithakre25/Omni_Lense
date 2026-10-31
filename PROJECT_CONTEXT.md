@@ -231,18 +231,24 @@ OmniLens requires **zero environment variables** or secrets to build and run.
 
 ### Installation & Startup Commands
 ```bash
-# 1. Install dependencies
+# 1. Clone the repository
+git clone https://github.com/Janvithakre25/Omni_Lense.git
+cd Omni_Lense
+
+# 2. Install dependencies
 npm install
 
-# 2. Run local development server
+# 3. Run local development server
 npm run dev
 
-# 3. Build production bundle
+# 4. Build production bundle
 npm run build
 
-# 4. Run automated test suite
+# 5. Run automated test suite
 npm test
 ```
+
+> **Note on Terminal Sessions:** Because `npm run dev` remains running as a continuous foreground process, use a separate or different terminal window/tab to execute tests, builds, or git commands simultaneously.
 
 ---
 
