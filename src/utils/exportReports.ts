@@ -14,6 +14,7 @@ export function downloadCleanedCSV(dataset: ParsedDataset) {
   document.body.appendChild(link);
   link.click();
   document.body.removeChild(link);
+  URL.revokeObjectURL(url);
 }
 
 export function downloadExcelWorkbook(dataset: ParsedDataset) {

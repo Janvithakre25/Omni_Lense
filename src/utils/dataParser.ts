@@ -2,6 +2,20 @@ import Papa from 'papaparse';
 import * as XLSX from 'xlsx';
 import { ColumnInfo, ColumnDataType } from '../types/dataset';
 
+export const MAX_FILE_SIZE_MB = 50;
+export const MAX_FILE_SIZE_BYTES = MAX_FILE_SIZE_MB * 1024 * 1024;
+
+export function sanitizeFileName(rawName: string): string {
+  if (!rawName || typeof rawName !== 'string') return 'dataset';
+  // Remove path traversal, directory separators, and control characters
+  const clean = rawName
+    .replace(/^.*[\\\/]/, '') // Extract basename
+    .replace(/[<>:"/\\|?*\x00-\x1F]/g, '_') // Remove illegal filename and control characters
+    .replace(/^\.+/, '') // Remove leading dots
+    .trim();
+  return clean.slice(0, 100) || 'dataset';
+}
+
 export interface ParseResult {
   data: Record<string, any>[];
   columns: ColumnInfo[];
@@ -125,7 +139,22 @@ export function analyzeColumns(data: Record<string, any>[]): ColumnInfo[] {
 }
 
 export async function parseFile(file: File): Promise<ParseResult> {
-  const fileExt = file.name.split('.').pop()?.toLowerCase();
+  if (!file) {
+    throw new Error('No file provided for parsing.');
+  }
+
+  // File size validation to prevent memory exhaustion and browser denial-of-service
+  if (file.size === 0) {
+    throw new Error('The uploaded file is empty (0 bytes). Please upload a file with data rows.');
+  }
+
+  if (file.size > MAX_FILE_SIZE_BYTES) {
+    const sizeInMB = (file.size / (1024 * 1024)).toFixed(1);
+    throw new Error(`File size (${sizeInMB}MB) exceeds the maximum allowed limit of ${MAX_FILE_SIZE_MB}MB. Please upload a smaller file.`);
+  }
+
+  const safeFileName = sanitizeFileName(file.name);
+  const fileExt = safeFileName.split('.').pop()?.toLowerCase();
 
   if (fileExt === 'csv') {
     return new Promise((resolve, reject) => {
@@ -143,7 +172,7 @@ export async function parseFile(file: File): Promise<ParseResult> {
           resolve({
             data: cleanData,
             columns,
-            fileName: file.name,
+            fileName: safeFileName,
             rowCount: cleanData.length,
             columnCount: columns.length,
           });
@@ -177,7 +206,7 @@ export async function parseFile(file: File): Promise<ParseResult> {
           resolve({
             data: rawJson,
             columns,
-            fileName: file.name,
+            fileName: safeFileName,
             rowCount: rawJson.length,
             columnCount: columns.length,
           });
@@ -207,7 +236,7 @@ export async function parseFile(file: File): Promise<ParseResult> {
           resolve({
             data: dataArray,
             columns,
-            fileName: file.name,
+            fileName: safeFileName,
             rowCount: dataArray.length,
             columnCount: columns.length,
           });

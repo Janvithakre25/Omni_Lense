@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react';
-import { Upload, FileText, CheckCircle2, AlertCircle, ArrowRight, Loader2, Sparkles, RefreshCw, Table } from 'lucide-react';
+import { Upload, FileText, CheckCircle2, AlertCircle, ArrowRight, Loader2, Sparkles, RefreshCw, Table, ShieldCheck } from 'lucide-react';
 import { parseFile, ParseResult } from '../utils/dataParser';
 import { calculateQualityReport, generateEvidenceFindings, generateSuggestedQuestions } from '../utils/dataAnalyzer';
 import { ParsedDataset } from '../types/dataset';
@@ -69,7 +69,10 @@ export const UploadSection: React.FC<UploadSectionProps> = ({
 
   const onFileSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files.length > 0) {
-      handleProcessFile(e.target.files[0]);
+      const selectedFile = e.target.files[0];
+      // Reset input value to prevent the browser from holding the File object in DOM
+      e.target.value = '';
+      handleProcessFile(selectedFile);
     }
   };
 
@@ -156,6 +159,27 @@ export const UploadSection: React.FC<UploadSectionProps> = ({
                   <span className="px-2 py-0.5 rounded-md bg-cream/50 text-mutedGrey">PDF Reports</span>
                   <span className="px-2 py-0.5 rounded-md bg-cream/50 text-mutedGrey">Word Docs</span>
                   <span className="px-2 py-0.5 rounded-md bg-cream/50 text-mutedGrey">Scanned Receipts</span>
+                </div>
+              </div>
+
+              {/* Privacy Notice */}
+              <div className="mt-6 p-4 sm:p-5 rounded-2xl bg-mint/30 border border-sage/60 text-left">
+                <div className="flex items-center gap-2 mb-2">
+                  <ShieldCheck className="w-5 h-5 text-forest shrink-0" />
+                  <h4 className="text-sm sm:text-base font-bold text-forest-dark">
+                    🔒 Your Data. Your Privacy.
+                  </h4>
+                </div>
+                <div className="text-xs sm:text-sm text-charcoal/80 leading-relaxed space-y-2">
+                  <p>
+                    Your uploaded files are processed temporarily to provide your requested results. We do not store your uploaded files or their contents in our database. Temporary processing data is cleaned up after processing, subject to the limitations described in our privacy policy.
+                  </p>
+                  <p>
+                    Your files may be accessed by the systems that process your request, but they are not made available for routine human browsing through application file storage.
+                  </p>
+                  <p className="font-semibold text-forest-dark">
+                    Your privacy matters. Your files are processed, not permanently stored by our application.
+                  </p>
                 </div>
               </div>
 
